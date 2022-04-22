@@ -6,4 +6,5 @@ sed "s/tagVersion/2.0/g" -i deployment.yaml
 cat deployment.yaml
 git add .
 git commit -m "tag changed"
+git push https://${GIT_USER_NAME}:${GIT_PWD}@github.com/XerO00/cd.git    
 git status
