@@ -36,7 +36,7 @@ pipeline {
                         // sh 'git push'
                         sh 'pwd'
                         sh 'ls'
-                        sh 'sed "s/tagVersion/2.0/g" deployment.yaml.yml'
+                        sh 'sed "s/tagVersion/2.0/g" deployment.yaml'
                         sh 'cat deployment.yaml'
                         echo 'git push successful'
                     }
