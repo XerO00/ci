@@ -28,18 +28,16 @@ pipeline {
             }
         }
         stage('SCM') {                 
-            steps {
-                dir('cd'){
-                    withCredentials([usernamePassword(credentialsId: 'git_mirror', passwordVariable: 'GIT_PWD', usernameVariable: 'GIT_USER_NAME')]){                
-                        echo 'clonning with credentials'
-                        sh 'git clone https://github.com/XerO00/cd.git'
-                        // sh 'git push'
-                        sh 'pwd'
-                        sh 'ls'
-                        // sh 'sed "s/tagVersion/2.0/g" deployment.yaml'
-                        sh 'cat deployment.yaml'
-                        echo 'git push successful'
-                    }
+            steps {                
+                withCredentials([usernamePassword(credentialsId: 'git_mirror', passwordVariable: 'GIT_PWD', usernameVariable: 'GIT_USER_NAME')]){                
+                    echo 'clonning with credentials'
+                    sh 'git clone https://github.com/XerO00/cd.git'
+                    // sh 'git push'
+                    sh 'pwd'
+                    sh 'ls'
+                    sh 'sed "s/tagVersion/2.0/g" deployment.yaml'
+                    sh 'cat deployment.yaml'
+                    echo 'git push successful'                    
                 }                               
             }
         }
