@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {                 
             steps {
-                cleanWc()
+                deleteDir()
                 script {
                     image = docker.build("macprasanna/sample-tomcat:${TAG}")
                 }                
