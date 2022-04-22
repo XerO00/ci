@@ -6,7 +6,7 @@ pipeline {
         stage('Build') {                 
             steps {
                 script {
-                    image = docker.build("macprasanna/sample-tomcat:1.0", "--pull -f Dockerfile")
+                    image = docker.build("macprasanna/sample-tomcat:1.0")
                 }                
             }
         }   
