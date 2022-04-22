@@ -7,8 +7,7 @@ pipeline {
     }
     stages {
         stage('Build') {                 
-            steps {
-                deleteDir()
+            steps {                
                 script {
                     image = docker.build("macprasanna/sample-tomcat:${TAG}")
                 }                
@@ -40,6 +39,11 @@ pipeline {
                     echo 'git push successful'                    
                 }                               
             }
+        }
+    }
+    post {
+        always {
+            deleteDir() /* clean up our workspace */
         }
     }
 }
