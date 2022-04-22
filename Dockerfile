@@ -1,4 +1,4 @@
-# get the image of tomcat
+# get the image of tomcat and run war file
 FROM tomcat:8.0-alpine
 
 LABEL maintainer="xero00@github.com"
