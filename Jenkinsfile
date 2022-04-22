@@ -30,7 +30,7 @@ pipeline {
         stage('SCM') {                 
             steps {
                 dir('cd'){
-                    withCredentials([usernamePassword(credentialsId: 'git', passwordVariable: 'GIT_PWD', usernameVariable: 'GIT_USER_NAME')]){                
+                    withCredentials([usernamePassword(credentialsId: 'git_mirror', passwordVariable: 'GIT_PWD', usernameVariable: 'GIT_USER_NAME')]){                
                         echo 'clonning with credentials'
                         sh 'git clone https://github.com/XerO00/cd.git'
                         // sh 'git push'
