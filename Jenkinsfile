@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('Build') {                 
             steps {
+                cleanWc()
                 script {
                     image = docker.build("macprasanna/sample-tomcat:${TAG}")
                 }                
@@ -45,6 +46,5 @@ pipeline {
 
 def getDockerTag(){
     def tag  = sh script: 'git rev-parse HEAD', returnStdout: true
-    println tag
     return tag
 }
