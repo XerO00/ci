@@ -39,7 +39,7 @@ pipeline {
                     sed "s/tagVersion/2.0/g" deployment.yaml  > deployment.yaml          
                     git add .
                     git commit -m 'tag changed'
-                    git push -u origin master                    
+                    git push --repo=https://github.com/XerO00/cd.git 
                     """)
                     echo 'git push successful'                    
                 }                               
