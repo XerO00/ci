@@ -6,7 +6,7 @@ pipeline {
         stage('Build') {                 
             steps {
                 script {
-                    image = docker.build("macprasanna/sample-tomcat:${TAG}")
+                    image = docker.build("macprasanna/sample-tomcat:1.0")
                 }                
             }
         }   
@@ -32,7 +32,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'git_mirror', passwordVariable: 'GIT_PWD', usernameVariable: 'GIT_USER_NAME')]){                
                     echo 'clonning with credentials'
                     sh 'chmod +x ./push.sh'
-                    sh "./push.sh ${TAG}"                    
+                    sh './push.sh'                    
                     echo 'git push successful'                    
                 }                               
             }
