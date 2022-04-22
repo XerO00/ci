@@ -40,7 +40,7 @@ pipeline {
                     git add .
                     git commit -m 'tag changed'
                     git status
-                    git push https://${GIT_USER_NAME}:${GIT_PWD}@github.com/cd.git                    
+                    git push https://${GIT_USER_NAME}:${GIT_PWD}@github.com/XerO00/cd.git                    
                     """)
                     echo 'git push successful'                    
                 }                               
