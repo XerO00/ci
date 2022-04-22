@@ -31,18 +31,8 @@ pipeline {
             steps {            
                 withCredentials([usernamePassword(credentialsId: 'git_mirror', passwordVariable: 'GIT_PWD', usernameVariable: 'GIT_USER_NAME')]){                
                     echo 'clonning with credentials'
-                    sh(script: """
-                    rm -rf cd
-                    git clone https://github.com/XerO00/cd.git
-                    cd cd/
-                    ls
-                    sed "s/tagVersion/2.0/g" deployment.yaml  > deployment.yaml
-                    cat deployment.yaml
-                    git add .
-                    git commit -m 'tag changed'
-                    git status
-                                     
-                    """)
+                    sh 'chmod +x ./push.sh'
+                    sh './push.sh'                    
                     echo 'git push successful'                    
                 }                               
             }
