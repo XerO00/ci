@@ -2,7 +2,7 @@
 rm -rf cd
 git clone https://github.com/XerO00/cd.git
 cd cd/
-sed "s/tagVersion/$1/g" -i deployment.yaml
+sed "s/tagVersion/$1/g" deployment > deployment.yaml
 cat deployment.yaml
 git add .
 git commit -m "tag changed"
