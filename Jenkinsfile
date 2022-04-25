@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {                 
             steps {                
                 script {
-                    image = docker.build("macprasanna/sample-tomcat:${TAG}")
+                    image = docker.build("ecrrepo:latest")
                 }                
             }
         }   
@@ -25,7 +25,7 @@ pipeline {
             steps { 
                 script {
                     docker.withRegistry("https://421775237038.dkr.ecr.ap-south-1.amazonaws.com", "ecr:ap-south-1:ecr_mirror") {
-                        docker.image("macprasanna/sample-tomcat:${TAG}").push()
+                        docker.image("ecrrepo:latest").push()
                     }
                 }
             }
