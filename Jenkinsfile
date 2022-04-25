@@ -25,7 +25,7 @@ pipeline {
             steps { 
                 script {
                     docker.withRegistry("https://421775237038.dkr.ecr.ap-south-1.amazonaws.com", "ecr:ap-south-1:ecr_mirror") {
-                        docker.image("firstPushFromJenkinsToECR").push()
+                        docker.image("ecrrepo").push()
                     }
                 }
             }
