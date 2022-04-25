@@ -24,9 +24,9 @@ pipeline {
         stage('Push') {                 
             steps { 
                 script {
-                    withDockerRegistry([credentialsId: "docker-hub", url: "" ]) {        
-                        image.push()
-                    }     
+                    docker.withRegistry("https://421775237038.dkr.ecr.ap-south-1.amazonaws.com", "ecr:ap-south-1:ecr_mirror") {
+                        docker.image("firstPushFromJenkinsToECR").push()
+                    }
                 }
             }
         }
